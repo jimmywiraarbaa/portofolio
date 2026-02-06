@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { FadeIn } from "./motion";
+import { FadeIn } from './motion';
 
 interface FooterProps {
   name: string;
@@ -22,7 +22,7 @@ export function Footer({ name, year }: FooterProps) {
               © {currentYear} {name}. All rights reserved.
             </p>
             <p className="text-sm text-[var(--muted)]/60">
-              Crafted with precision
+              Makan man makan, MAKANNNNNN!!
             </p>
           </div>
         </FadeIn>

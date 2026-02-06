@@ -18,20 +18,19 @@ import { CustomCursor } from '@/components/CustomCursor';
 const WORKS_DATA = [
   {
     id: '1',
-    title: 'Tracking Petugas',
-    category: 'Web Internal',
+    title: 'TP-PKK Kota Padang',
+    category: 'Web Publikasi',
     description:
-      'A minimalist e-commerce experience focused on typography and whitespace.',
-    image: '/images/work1.jpg',
-    year: '2024',
+      'A clean information platform for managing news and activities of TP PKK Kota Padang.',
+    image: '/images/mockup-tppkk.png',
+    year: '2025',
   },
   {
     id: '2',
-    title: 'Noir Studio',
-    category: 'Brand Identity',
-    description:
-      'Brand identity for a luxury fashion house featuring editorial photography.',
-    image: '/images/work2.jpg',
+    title: 'R5M Panel',
+    category: 'Web Internal',
+    description: 'Dashboard for managing internal operations of R5M company.',
+    image: '/images/r5m-panel.png',
     year: '2024',
   },
   {
@@ -118,11 +117,11 @@ const EDUCATION_DATA = {
 };
 
 const CONTACT_DATA = {
-  email: 'hello@portfolio.com',
+  email: 'jimmywiraarbaa03@gmail.com',
   socialLinks: [
-    { name: 'Twitter', url: 'https://twitter.com' },
-    { name: 'LinkedIn', url: 'https://linkedin.com' },
-    { name: 'Dribbble', url: 'https://dribbble.com' },
+    { name: 'Instagram', url: 'https://www.instagram.com/wiraarbaa_' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jimmy-wira-arbaa/' },
+    { name: 'Github', url: 'https://github.com/jimmywiraarbaa' },
   ],
 };
 
@@ -227,7 +226,11 @@ export default function HomePage() {
         />
 
         {/* Intro Section */}
-        <Intro heading={INTRO_DATA.heading} subHeading={INTRO_DATA.subHeading} techStack={INTRO_DATA.techStack} />
+        <Intro
+          heading={INTRO_DATA.heading}
+          subHeading={INTRO_DATA.subHeading}
+          techStack={INTRO_DATA.techStack}
+        />
 
         {/* Works Section */}
         <Works works={WORKS_DATA} />

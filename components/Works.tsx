@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { FadeIn, ScaleIn } from "./motion";
-import Image from "next/image";
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { FadeIn, ScaleIn } from './motion';
+import Image from 'next/image';
 
 interface Work {
   id: string;
@@ -31,7 +31,7 @@ export function Works({ works }: WorksProps) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ['start end', 'end start'],
   });
 
   return (
@@ -40,7 +40,7 @@ export function Works({ works }: WorksProps) {
         {/* Section heading */}
         <FadeIn>
           <h2 className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-sans leading-[1.1] tracking-tight text-[var(--foreground)] mb-16 md:mb-24">
-            Selected Project
+            Project Experience
           </h2>
         </FadeIn>
 
@@ -92,7 +92,7 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ['start end', 'end start'],
   });
 
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
@@ -104,7 +104,7 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
         ref={ref}
         style={{ scale, y }}
         className={`group relative ${
-          isEven ? "" : "md:flex md:flex-row-reverse"
+          isEven ? '' : 'md:flex md:flex-row-reverse'
         } flex flex-col md:flex-row gap-8 md:gap-16 items-center`}
       >
         {/* Image */}
@@ -130,7 +130,7 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
         {/* Content */}
         <div
           className={`w-full md:w-1/3 ${
-            isEven ? "md:text-left" : "md:text-right"
+            isEven ? 'md:text-left' : 'md:text-right'
           }`}
         >
           <span className="inline-block text-sm uppercase tracking-[0.2em] text-[var(--accent)] mb-4">
@@ -140,9 +140,7 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
             {work.title}
           </h3>
           <p className="text-[var(--muted)] text-lg mb-6">{work.description}</p>
-          <span className="text-sm text-[var(--muted)]/60">
-            {work.year}
-          </span>
+          <span className="text-sm text-[var(--muted)]/60">{work.year}</span>
         </div>
       </motion.div>
     </ScaleIn>
