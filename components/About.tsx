@@ -56,7 +56,11 @@ export function About({ heading, tabs }: AboutProps) {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className="relative pb-2 text-3xl md:text-4xl font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-300"
+                className={`relative pb-2 text-3xl md:text-4xl font-medium transition-all duration-300 ${
+                  activeTab === tab.id
+                    ? "text-white"
+                    : "text-[var(--muted)] hover:text-[var(--foreground)] blur-[2.5px] hover:blur-0"
+                }`}
               >
                 {tab.label}
                 {/* Active indicator - no underline, just color change */}
