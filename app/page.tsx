@@ -45,10 +45,15 @@ const WORKS_DATA = [
 ];
 
 const INTRO_DATA = {
-  heading: 'Creating digital experiences that leave a lasting impression.',
-  text: [
-    'I craft thoughtful, user-centric digital products with attention to detail and a passion for smooth interactions.',
-    'My work sits at the intersection of design and technology—where aesthetics meet functionality to create memorable experiences.',
+  heading: 'Available for Remote Work',
+  subHeading: 'Tech Stack',
+  techStack: [
+    { name: 'Laravel', icon: 'laravel' },
+    { name: 'React', icon: 'react' },
+    { name: 'Golang', icon: 'golang' },
+    { name: 'MySQL', icon: 'mysql' },
+    { name: 'PostgreSQL', icon: 'postgresql' },
+    { name: 'Postman', icon: 'postman' },
   ],
 };
 
@@ -221,7 +226,7 @@ export default function HomePage() {
         />
 
         {/* Intro Section */}
-        <Intro heading={INTRO_DATA.heading} text={INTRO_DATA.text} />
+        <Intro heading={INTRO_DATA.heading} subHeading={INTRO_DATA.subHeading} techStack={INTRO_DATA.techStack} />
 
         {/* Works Section */}
         <Works works={WORKS_DATA} />
