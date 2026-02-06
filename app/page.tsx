@@ -54,6 +54,7 @@ const INTRO_DATA = {
     { name: 'MySQL', icon: 'mysql' },
     { name: 'PostgreSQL', icon: 'postgresql' },
     { name: 'Postman', icon: 'postman' },
+    { name: 'Flutter', icon: 'flutter' },
   ],
 };
 

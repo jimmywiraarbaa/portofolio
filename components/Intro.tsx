@@ -23,6 +23,7 @@ const techColors: Record<string, string> = {
   mysql: "#F29111",
   postgresql: "#336791",
   postman: "#FF6C37",
+  flutter: "#17B9FD",
 };
 
 /**
