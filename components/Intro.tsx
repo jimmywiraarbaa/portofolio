@@ -15,6 +15,16 @@ interface IntroProps {
   techStack: TechStack[];
 }
 
+// Tech stack brand colors
+const techColors: Record<string, string> = {
+  laravel: "#F53002",
+  react: "#57C4DC",
+  golang: "#79D4FD",
+  mysql: "#F29111",
+  postgresql: "#336791",
+  postman: "#FF6C37",
+};
+
 /**
  * Intro section with parallax text and fade-in animations
  *
@@ -59,12 +69,15 @@ export function Intro({ heading, subHeading, techStack }: IntroProps) {
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
                 className="flex flex-col items-center gap-3 group"
               >
-                <div className="w-16 h-16 md:w-[104px] md:h-[104px] relative">
+                <div className="w-16 h-16 md:w-[104px] md:h-[104px] relative flex items-center justify-center" style={{"--tech-color": techColors[tech.icon]} as React.CSSProperties}>
+                  {/* Background color circle on hover */}
+                  <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100" style={{backgroundColor: "var(--tech-color)"}} />
+                  {/* Logo */}
                   <Image
                     src={`/logos/${tech.icon}.svg`}
                     alt={tech.name}
                     fill
-                    className="object-contain brightness-0 invert opacity-60 group-hover:opacity-100 transition-all duration-300"
+                    className="object-contain brightness-0 invert opacity-60 group-hover:opacity-100 relative z-10 transition-all duration-300"
                   />
                 </div>
                 <span className="text-sm text-[var(--muted)] group-hover:text-[var(--foreground)] transition-colors duration-300">
