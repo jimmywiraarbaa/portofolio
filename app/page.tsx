@@ -12,6 +12,7 @@ import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { CustomCursor } from '@/components/CustomCursor';
 
 // Sample data - replace with your own content
 const WORKS_DATA = [
@@ -240,6 +241,9 @@ export default function HomePage() {
 
       {/* WhatsApp Floating Button */}
       <WhatsAppButton />
+
+      {/* Custom Cursor */}
+      <CustomCursor />
     </>
   );
 }
