@@ -23,7 +23,7 @@ const WORKS_DATA = [
     description:
       'A clean information platform for managing news and activities of TP PKK Kota Padang.',
     image: '/images/mockup-tppkk.png',
-    year: '2025',
+    tech: ['Laravel', 'React', 'MySQL'],
   },
   {
     id: '2',
@@ -31,7 +31,7 @@ const WORKS_DATA = [
     category: 'Web Internal',
     description: 'Dashboard for managing internal operations of R5M company.',
     image: '/images/r5m-panel.png',
-    year: '2024',
+    tech: ['Laravel', 'React', 'MySQL'],
   },
   {
     id: '3',
@@ -39,7 +39,7 @@ const WORKS_DATA = [
     category: 'Art Direction',
     description: 'Visual direction for architectural photography monograph.',
     image: '/images/work3.jpg',
-    year: '2023',
+    tech: ['Laravel', 'React', 'MySQL'],
   },
 ];
 

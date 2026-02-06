@@ -5,13 +5,24 @@ import { useRef } from 'react';
 import { FadeIn, ScaleIn } from './motion';
 import Image from 'next/image';
 
+// Tech stack brand colors
+const techColors: Record<string, string> = {
+  laravel: '#F53002',
+  react: '#57C4DC',
+  golang: '#79D4FD',
+  mysql: '#F29111',
+  postgresql: '#336791',
+  postman: '#FF6C37',
+  flutter: '#17B9FD',
+};
+
 interface Work {
   id: string;
   title: string;
   category: string;
   description: string;
   image: string;
-  year: string;
+  tech: string[];
 }
 
 interface WorksProps {
@@ -140,7 +151,22 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
             {work.title}
           </h3>
           <p className="text-[var(--muted)] text-lg mb-6">{work.description}</p>
-          <span className="text-sm text-[var(--muted)]/60">{work.year}</span>
+          {/* Tech logos */}
+          <div className={`flex gap-4 ${isEven ? 'md:justify-start' : 'md:justify-end'}`}>
+            {work.tech.map((tech) => (
+              <div key={tech} className="w-8 h-8 relative flex items-center justify-center group" style={{"--tech-color": techColors[tech.toLowerCase()]} as React.CSSProperties}>
+                {/* Background color circle on hover */}
+                <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100" style={{backgroundColor: "var(--tech-color)"}} />
+                {/* Logo */}
+                <Image
+                  src={`/logos/${tech.toLowerCase()}.svg`}
+                  alt={tech}
+                  fill
+                  className="object-contain brightness-0 invert opacity-60 group-hover:opacity-100 relative z-10 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </ScaleIn>
