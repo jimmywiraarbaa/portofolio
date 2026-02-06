@@ -53,22 +53,60 @@ const INTRO_DATA = {
 
 const EDUCATION_DATA = {
   heading: 'Education',
-  description: [
-    "With over 8 years of experience in digital design and development, I've had the privilege of working with brands that value craftsmanship and attention to detail.",
-    'I believe in the power of restraint—knowing what to leave out is just as important as what to include. Every element should serve a purpose.',
-  ],
-  skills: [
-    'Creative Direction',
-    'UI/UX Design',
-    'Frontend Development',
-    'Motion Design',
-    'Brand Strategy',
-    'Art Direction',
-  ],
-  stats: [
-    { label: 'Years Experience', value: '8+' },
-    { label: 'Projects Completed', value: '50+' },
-    { label: 'Happy Clients', value: '30+' },
+  tabs: [
+    {
+      id: 'formal',
+      label: 'Formal',
+      shortDescription:
+        'Academic background and formal training in computer science and design.',
+      description: 'Bachelor of Computer Science',
+      institution: 'University of Technology',
+      year: '2018 - 2022',
+      gpa: 'GPA: 3.8/4.0',
+      details: [
+        'Specialized in Software Engineering and Human-Computer Interaction',
+        "Dean's List for 6 consecutive semesters",
+        'Capstone project: AI-powered design system generator',
+      ],
+      image: '/images/edu-formal.jpg',
+    },
+    {
+      id: 'non-formal',
+      label: 'Non-Formal',
+      shortDescription:
+        'Professional certifications, workshops, and intensive bootcamps.',
+      description: 'Professional Development',
+      institution: 'Various Platforms',
+      year: '2020 - Present',
+      gpa: '',
+      details: [
+        'AWS Certified Solutions Architect',
+        'Google UX Design Certificate',
+        'Meta Frontend Developer Certificate',
+        'Adobe Certified Expert',
+        'Advanced React Patterns Workshop',
+        'UI/UX Design Sprint Bootcamp',
+        'Motion Design with Framer Motion',
+        'Full-stack Development Immersive',
+      ],
+      image: '/images/edu-non-formal.jpg',
+    },
+    {
+      id: 'courses',
+      label: 'Courses',
+      shortDescription: 'Self-paced learning from top educational platforms.',
+      description: 'Continuous Learning',
+      institution: 'Online Platforms',
+      year: '2019 - Present',
+      gpa: '',
+      details: [
+        'Coursera: Machine Learning Specialization',
+        'Udemy: Complete Web Development Bootcamp',
+        'Pluralsight: Advanced JavaScript Patterns',
+        'LinkedIn Learning: Design Leadership',
+      ],
+      image: '/images/edu-courses.jpg',
+    },
   ],
 };
 
@@ -188,12 +226,7 @@ export default function HomePage() {
         <Works works={WORKS_DATA} />
 
         {/* Education Section */}
-        <About
-          heading={EDUCATION_DATA.heading}
-          description={EDUCATION_DATA.description}
-          skills={EDUCATION_DATA.skills}
-          stats={EDUCATION_DATA.stats}
-        />
+        <About heading={EDUCATION_DATA.heading} tabs={EDUCATION_DATA.tabs} />
 
         {/* Contact Section */}
         <Contact
