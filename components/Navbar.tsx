@@ -80,16 +80,15 @@ export function Navbar() {
         opacity: mounted && isPastHero ? 1 : 0,
       }}
       transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-      className={cn(
-        "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
-        "border-b border-transparent",
-        isScrolled
-          ? "bg-black/80 backdrop-blur-md border-white/10"
-          : "bg-transparent"
-      )}
+      className="fixed top-0 left-0 right-0 z-40 bg-black/20 backdrop-blur-md"
+      style={{
+        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+        maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)"
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <Link
             href="/"
