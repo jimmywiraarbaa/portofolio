@@ -106,6 +106,8 @@ export function About({ heading, tabs }: AboutProps) {
                   <img
                     src={currentTab.image}
                     alt={currentTab.label}
+                    width="320"
+                    height="320"
                     className="w-full h-full object-contain p-8"
                   />
                 ) : (
@@ -153,6 +155,7 @@ export function About({ heading, tabs }: AboutProps) {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
                   />
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

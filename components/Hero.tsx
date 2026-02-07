@@ -38,8 +38,8 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
     if (!video) return;
 
     const playVideo = () => {
-      video.play().catch((err) => {
-        console.log("Autoplay prevented:", err);
+      video.play().catch(() => {
+        // Autoplay prevented - silently fail
       });
     };
 
