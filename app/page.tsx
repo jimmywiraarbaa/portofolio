@@ -1,33 +1,21 @@
 'use client';
 
-import { useState, useEffect, useMemo, lazy, Suspense } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useLenis } from '@/hooks/useLenis';
 import { usePreloadMedia, useFontPreload } from '@/hooks/usePreloadMedia';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Intro } from '@/components/Intro';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { CustomCursor } from '@/components/CustomCursor';
 import dynamic from 'next/dynamic';
 
-// Lazy load components below the fold for better performance
-const Works = dynamic(() => import('@/components/Works').then(mod => ({ default: mod.Works })), {
-  loading: () => <div className="min-h-[50vh] bg-[var(--background)]" />,
-});
-
-const About = dynamic(() => import('@/components/About').then(mod => ({ default: mod.About })), {
-  loading: () => <div className="min-h-[50vh] bg-[var(--background)]" />,
-});
-
-const Contact = dynamic(() => import('@/components/Contact').then(mod => ({ default: mod.Contact })), {
-  loading: () => <div className="min-h-[50vh] bg-[var(--background)]" />,
-});
-
-const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
-  loading: () => <div className="min-h-[20vh] bg-[var(--background)]" />,
-});
-
-const WhatsAppButton = dynamic(() => import('@/components/WhatsAppButton').then(mod => ({ default: mod.WhatsAppButton })));
-const CustomCursor = dynamic(() => import('@/components/CustomCursor').then(mod => ({ default: mod.CustomCursor })));
+// Lazy load large sections below the fold
+const Works = dynamic(() => import('@/components/Works').then(mod => ({ default: mod.Works })));
+const About = dynamic(() => import('@/components/About').then(mod => ({ default: mod.About })));
+const Contact = dynamic(() => import('@/components/Contact').then(mod => ({ default: mod.Contact })));
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })));
 
 // Sample data - replace with your own content
 const WORKS_DATA = [
@@ -221,17 +209,17 @@ export default function HomePage() {
         />
 
         {/* Works Section - Lazy loaded */}
-        <Suspense fallback={<div className="min-h-[50vh] bg-[var(--background)]" />}>
+        <Suspense fallback={null}>
           <Works works={WORKS_DATA} />
         </Suspense>
 
         {/* Education Section - Lazy loaded */}
-        <Suspense fallback={<div className="min-h-[50vh] bg-[var(--background)]" />}>
+        <Suspense fallback={null}>
           <About heading={EDUCATION_DATA.heading} tabs={EDUCATION_DATA.tabs} />
         </Suspense>
 
         {/* Contact Section - Lazy loaded */}
-        <Suspense fallback={<div className="min-h-[50vh] bg-[var(--background)]" />}>
+        <Suspense fallback={null}>
           <Contact
             email={CONTACT_DATA.email}
             socialLinks={CONTACT_DATA.socialLinks}
@@ -239,7 +227,7 @@ export default function HomePage() {
         </Suspense>
 
         {/* Footer - Lazy loaded */}
-        <Suspense fallback={<div className="min-h-[20vh] bg-[var(--background)]" />}>
+        <Suspense fallback={null}>
           <Footer name="JIMMY" />
         </Suspense>
       </main>
