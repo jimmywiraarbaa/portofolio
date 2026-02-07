@@ -85,8 +85,8 @@ const EDUCATION_DATA = {
     {
       id: 'courses',
       label: 'education.courses',
-      image: '/images/panda-sleepy.png',
-      message: 'Admin malas flexing, sekian terimakasih',
+      image: 'https://media.tenor.com/I52W87bM7K8AAAAi/anime-aaaa.gif',
+      message: 'Udah dibilang admin malas flexing, KIMAK!!!!',
     },
   ],
 };

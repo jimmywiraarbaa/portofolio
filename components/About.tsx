@@ -102,13 +102,21 @@ export function About({ heading, tabs }: AboutProps) {
                 transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
                 className="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden bg-[var(--muted)]/10 shadow-2xl"
               >
-                <Image
-                  src={currentTab.image}
-                  alt={currentTab.label}
-                  fill
-                  className="object-contain p-8 invert"
-                  sizes="(max-width: 768px) 256px, 320px"
-                />
+                {currentTab.image.startsWith('http') ? (
+                  <img
+                    src={currentTab.image}
+                    alt={currentTab.label}
+                    className="w-full h-full object-contain p-8"
+                  />
+                ) : (
+                  <Image
+                    src={currentTab.image}
+                    alt={currentTab.label}
+                    fill
+                    className="object-contain p-8 invert"
+                    sizes="(max-width: 768px) 256px, 320px"
+                  />
+                )}
               </motion.div>
 
               {/* Message */}
