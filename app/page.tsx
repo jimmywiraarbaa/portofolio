@@ -164,20 +164,11 @@ export default function HomePage() {
   // Handle loading complete
   const handleLoadingComplete = () => {
     setIsLoadingComplete(true);
-    // Enable scrolling after loading
-    document.body.style.overflow = '';
   };
-
-  // Prevent scroll during loading
-  useEffect(() => {
-    if (!isLoadingComplete) {
-      document.body.style.overflow = 'hidden';
-    }
-  }, [isLoadingComplete]);
 
   return (
     <>
-      {/* Loading Screen */}
+      {/* Loading Screen - non-blocking overlay */}
       <LoadingScreen
         progress={progress}
         isLoaded={allAssetsLoaded}
@@ -187,12 +178,8 @@ export default function HomePage() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Main Content - only visible after loading */}
-      <main
-        className={`transition-opacity duration-1000 ${
-          isLoadingComplete ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
+      {/* Main Content - always visible */}
+      <main>
         {/* Hero Section */}
         <Hero
           videos={HERO_VIDEOS}

@@ -49,6 +49,8 @@ export default function RootLayout({
         {/* Preconnect to font domains - no crossorigin for preconnect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
+        {/* Preload critical LCP image */}
+        <link rel="preload" href="/images/edu-formal.jpg" as="image" />
         {/* Load Material Symbols with display=swap for non-blocking */}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
         <link rel="icon" type="image/png" href="/images/cool-duck.png" />

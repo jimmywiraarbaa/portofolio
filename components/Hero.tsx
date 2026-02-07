@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRef, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Video {
@@ -25,27 +25,12 @@ interface HeroProps {
  * - Auto-rotates through multiple videos
  * - Smooth crossfade transitions between videos
  * - Dark gradient overlay for text readability
- * - Parallax effect on title
  * - Optimized for web (lazy loading, poster image)
  * - Mobile responsive
  */
 export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
-  const ref = useRef<HTMLElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const { t } = useLanguage();
-
-  const { scrollY } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  // Enhanced parallax effects
-  const yVideo = useTransform(scrollY, [0, 1000], [0, 200]);
-  const scaleVideo = useTransform(scrollY, [0, 1000], [1, 1.2]);
-  const yTitle = useTransform(scrollY, [0, 500], [0, 200]);
-  const yTagline = useTransform(scrollY, [0, 500], [0, 120]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const scaleTitle = useTransform(scrollY, [0, 500], [1, 0.9]);
 
   // Play video when it becomes active
   useEffect(() => {
@@ -71,15 +56,9 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
   }, [currentIndex]);
 
   return (
-    <section
-      ref={ref}
-      className="relative h-screen w-full overflow-hidden flex items-center justify-center"
-    >
-      {/* Video Background with parallax */}
-      <motion.div
-        style={{ y: yVideo, scale: scaleVideo }}
-        className="absolute inset-0 w-full h-full will-change-transform"
-      >
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
         <AnimatePresence mode="wait">
           {videos.map((video, index) => (
             index === currentIndex && (
@@ -98,7 +77,7 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 1.5, ease: [0.25, 0.4, 0.25, 1] }}
+                transition={{ duration: 0.5 }}
                 className="absolute inset-0 w-full h-full object-cover"
               >
                 <source src={video.webm} type="video/webm" />
@@ -108,40 +87,35 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
           ))}
         </AnimatePresence>
 
-        {/* Dark gradient overlay with parallax */}
-        <motion.div
-          style={{ y: useTransform(scrollY, [0, 1000], [0, 100]) }}
-          className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 will-change-transform"
-        />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
 
         {/* Subtle vignette effect */}
         <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.5)]" />
-      </motion.div>
+      </div>
 
       {/* Hero Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 text-center px-6 max-w-6xl mx-auto"
-      >
-        {/* Title with enhanced parallax */}
+      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+        {/* Title */}
         <motion.h1
-          style={{ y: yTitle, scale: scaleTitle }}
-          className="text-[12vw] md:text-[8vw] lg:text-[7vw] font-material-symbols font-light tracking-tighter text-white leading-[0.9] will-change-transform"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-[12vw] md:text-[8vw] lg:text-[7vw] font-material-symbols font-light tracking-tighter text-white leading-[0.9]"
         >
           {t('hero.title')}
         </motion.h1>
 
-        {/* Tagline with parallax and delay */}
+        {/* Tagline */}
         <motion.p
-          style={{ y: yTagline }}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
-          className="mt-6 md:mt-8 text-lg md:text-xl lg:text-2xl text-white/80 font-light tracking-wide max-w-2xl mx-auto will-change-transform"
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="mt-6 md:mt-8 text-lg md:text-xl lg:text-2xl text-white/80 font-light tracking-wide max-w-2xl mx-auto"
         >
           {t('hero.tagline')}
         </motion.p>
-      </motion.div>
+      </div>
     </section>
   );
 }

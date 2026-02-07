@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
-import { useScroll } from "framer-motion";
 
 /**
  * Custom hook to integrate Lenis smooth scrolling with Framer Motion
@@ -27,7 +26,6 @@ export function useLenis({
   easing?: (t: number) => number;
 } = {}) {
   const lenisRef = useRef<Lenis | null>(null);
-  const { scrollY } = useScroll();
 
   useEffect(() => {
     // Check for reduced motion preference

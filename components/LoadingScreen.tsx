@@ -29,9 +29,8 @@ export function LoadingScreen({
 }: LoadingScreenProps) {
   useEffect(() => {
     if (isLoaded && onComplete) {
-      // Faster exit after load for better performance
-      const timer = setTimeout(onComplete, 200);
-      return () => clearTimeout(timer);
+      // Immediate exit for better performance
+      onComplete();
     }
   }, [isLoaded, onComplete]);
 
@@ -41,41 +40,14 @@ export function LoadingScreen({
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
+          transition={{ duration: 0.2 }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--background)]"
         >
           <div className="flex flex-col items-center">
-            {/* Percentage display with monospace font for consistent width */}
-            <motion.div
-              key={Math.floor(progress)}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="text-[12vw] md:text-[8vw] font-sans tracking-tighter tabular-nums text-[var(--foreground)]"
-            >
+            {/* Simple percentage display */}
+            <div className="text-[12vw] md:text-[8vw] font-sans tracking-tighter tabular-nums text-[var(--foreground)]">
               {Math.floor(progress)}
-              <span className="text-[4vw] md:text-[2vw] align-top opacity-50">
-                %
-              </span>
-            </motion.div>
-
-            {/* Loading label */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              transition={{ delay: 0.3 }}
-              className="mt-4 text-sm uppercase tracking-[0.2em] text-[var(--muted)]"
-            >
-              Loading
-            </motion.p>
-
-            {/* Optional: Minimal progress indicator bar */}
-            <div className="mt-8 w-32 h-px bg-[var(--muted)]/20 overflow-hidden">
-              <motion.div
-                className="h-full bg-[var(--foreground)]"
-                style={{ width: `${progress}%` }}
-              />
+              <span className="text-[4vw] md:text-[2vw] align-top opacity-50">%</span>
             </div>
           </div>
         </motion.div>
