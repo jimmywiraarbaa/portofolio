@@ -14,6 +14,7 @@ const techColors: Record<string, string> = {
   postgresql: '#336791',
   postman: '#FF6C37',
   flutter: '#17B9FD',
+  nextjs: '#000000',
 };
 
 interface Work {

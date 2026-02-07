@@ -40,7 +40,7 @@ const WORKS_DATA = [
     description:
       'Mobile application for tracking and managing employee operations.',
     image: '/images/mockup-trackingapp.png',
-    tech: ['Laravel', 'React', 'PostgreSQL', 'Flutter'],
+    tech: ['Flutter', 'Nextjs', 'PostgreSQL', 'Golang'],
   },
 ];
 
@@ -50,6 +50,7 @@ const INTRO_DATA = {
   techStack: [
     { name: 'Laravel', icon: 'laravel' },
     { name: 'React', icon: 'react' },
+    { name: 'Next.js', icon: 'nextjs' },
     { name: 'Golang', icon: 'golang' },
     { name: 'MySQL', icon: 'mysql' },
     { name: 'PostgreSQL', icon: 'postgresql' },
