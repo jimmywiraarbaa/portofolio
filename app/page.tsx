@@ -35,11 +35,12 @@ const WORKS_DATA = [
   },
   {
     id: '3',
-    title: 'Silent Spaces',
-    category: 'Art Direction',
-    description: 'Visual direction for architectural photography monograph.',
-    image: '/images/work3.jpg',
-    tech: ['Laravel', 'React', 'MySQL'],
+    title: 'Tracking App',
+    category: 'Web & Mobile Internal',
+    description:
+      'Mobile application for tracking and managing employee operations.',
+    image: '/images/mockup-trackingapp.png',
+    tech: ['Laravel', 'React', 'PostgreSQL', 'Flutter'],
   },
 ];
 
