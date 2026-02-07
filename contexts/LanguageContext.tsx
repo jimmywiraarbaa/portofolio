@@ -53,6 +53,13 @@ const translations = {
     // Education
     'education.heading': 'Pendidikan',
     'education.formal': 'Formal',
+    'education.formal.description': 'Sarjana Teknik Informatika',
+    'education.formal.institution': 'UPI YPTK Padang',
+    'education.formal.year': '2021 - 2025',
+    'education.formal.gpa': 'IPK: 3.67/4.0',
+    'education.formal.detail1': 'Peminatan: Technopreneur',
+    'education.formal.detail2': 'Lulus dalam 3.5 tahun',
+    'education.formal.detail3': 'Fokus pada pengembangan bisnis berbasis teknologi',
     'education.nonFormal': 'Non-Formal',
     'education.courses': 'Kursus',
 
@@ -107,6 +114,13 @@ const translations = {
     // Education
     'education.heading': 'Education',
     'education.formal': 'Formal',
+    'education.formal.description': 'Bachelor of Computer Science',
+    'education.formal.institution': 'UPI YPTK Padang',
+    'education.formal.year': '2021 - 2025',
+    'education.formal.gpa': 'GPA: 3.67/4.0',
+    'education.formal.detail1': 'Specialization: Technopreneur',
+    'education.formal.detail2': 'Graduated in 3.5 years',
+    'education.formal.detail3': 'Focus on technology-based business development',
     'education.nonFormal': 'Non-Formal',
     'education.courses': 'Courses',
 
