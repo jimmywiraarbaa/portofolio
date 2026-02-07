@@ -56,12 +56,12 @@ export function About({ heading, tabs }: AboutProps) {
 
         {/* Tabs */}
         <FadeIn delay={0.2}>
-          <div className="flex flex-wrap justify-start gap-24 md:gap-40 mb-6 md:mb-8">
+          <div className="flex flex-wrap justify-center md:justify-start gap-8 md:gap-24 lg:gap-40 mb-6 md:mb-8">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative pb-2 text-3xl md:text-4xl font-medium transition-all duration-300 ${
+                className={`relative pb-2 text-xl md:text-3xl lg:text-4xl font-medium transition-all duration-300 ${
                   activeTab === tab.id
                     ? "text-white"
                     : "text-[var(--muted)] hover:text-[var(--foreground)] blur-[2.5px] hover:blur-0"
