@@ -19,26 +19,24 @@ const WORKS_DATA = [
   {
     id: '1',
     title: 'TP-PKK Kota Padang',
-    category: 'Web Publikasi',
-    description:
-      'A clean information platform for managing news and activities of TP PKK Kota Padang.',
+    category: 'works.tppkk.category',
+    description: 'works.tppkk.description',
     image: '/images/mockup-tppkk.png',
     tech: ['Laravel', 'React', 'MySQL'],
   },
   {
     id: '2',
     title: 'R5M Panel',
-    category: 'Web Internal',
-    description: 'Dashboard for managing internal operations of R5M company.',
+    category: 'works.r5m.category',
+    description: 'works.r5m.description',
     image: '/images/r5m-panel.png',
     tech: ['Laravel', 'React', 'MySQL'],
   },
   {
     id: '3',
     title: 'Tracking App',
-    category: 'Web & Mobile Internal',
-    description:
-      'Mobile application for tracking and managing employee operations.',
+    category: 'works.tracking.category',
+    description: 'works.tracking.description',
     image: '/images/mockup-trackingapp.png',
     tech: ['Flutter', 'Nextjs', 'PostgreSQL', 'Golang'],
   },

@@ -40,6 +40,15 @@ const translations = {
     // Works
     'works.heading': 'Pengalaman Project',
     'works.seeAll': 'Lihat semua project',
+    'works.tppkk.description':
+      'Platform informasi yang bersih untuk mengelola berita dan aktivitas TP PKK Kota Padang.',
+    'works.tppkk.category': 'Web Publikasi',
+    'works.r5m.description':
+      'Dashboard untuk mengelola operasi internal perusahaan Erlimaem.',
+    'works.r5m.category': 'Web Internal',
+    'works.tracking.description':
+      'Aplikasi mobile untuk pelacakan dan pengelolaan operasi karyawan.',
+    'works.tracking.category': 'Web & Mobile Internal',
 
     // Education
     'education.heading': 'Pendidikan',
@@ -85,6 +94,15 @@ const translations = {
     // Works
     'works.heading': 'Project Experience',
     'works.seeAll': 'See all project',
+    'works.tppkk.description':
+      'A clean information platform for managing news and activities of TP PKK Kota Padang.',
+    'works.tppkk.category': 'Web Publication',
+    'works.r5m.description':
+      'Dashboard for managing internal operations of R5M company.',
+    'works.r5m.category': 'Web Internal',
+    'works.tracking.description':
+      'Mobile application for tracking and managing employee operations.',
+    'works.tracking.category': 'Web & Mobile Internal',
 
     // Education
     'education.heading': 'Education',
@@ -136,6 +154,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return translations[language][key as keyof typeof translations.en] || key;
   };
 
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return <>{children}</>;
+  }
+
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
       {children}
@@ -145,8 +168,26 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
 export function useLanguage() {
   const context = useContext(LanguageContext);
+
+  // Fallback for when used outside LanguageProvider (e.g., error pages)
   if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    // Return default English translations as fallback
+    return {
+      language: 'en',
+      setLanguage: () => {},
+      t: (key: string) => {
+        const fallbackTranslations: Record<string, string> = {
+          'error.500.title': 'Something went wrong',
+          'error.500.message': 'An unexpected error occurred. Please try again later.',
+          'error.404.title': 'Page Not Found',
+          'error.404.message': 'The page you are looking for does not exist or has been moved.',
+          'error.back': 'Back to Home',
+          'error.retry': 'Try again',
+        };
+        return fallbackTranslations[key] || key;
+      },
+    };
   }
+
   return context;
 }

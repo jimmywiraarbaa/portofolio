@@ -103,6 +103,7 @@ export function Works({ works }: WorksProps) {
 function WorkItem({ work, index }: { work: Work; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isEven = index % 2 === 0;
+  const { t } = useLanguage();
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -148,12 +149,12 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
           }`}
         >
           <span className="inline-block text-sm uppercase tracking-[0.2em] text-[var(--accent)] mb-4">
-            {work.category}
+            {t(work.category)}
           </span>
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans text-[var(--foreground)] mb-4">
             {work.title}
           </h3>
-          <p className="text-[var(--muted)] text-lg mb-6">{work.description}</p>
+          <p className="text-[var(--muted)] text-lg mb-6">{t(work.description)}</p>
           {/* Tech logos */}
           <div className={`flex gap-4 ${isEven ? 'md:justify-start' : 'md:justify-end'}`}>
             {work.tech.map((tech) => (
