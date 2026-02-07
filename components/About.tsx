@@ -44,9 +44,12 @@ export function About({ heading, tabs }: AboutProps) {
         {/* Centered Title with Section Line */}
         <FadeIn>
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-sans leading-[1.1] tracking-tight text-[var(--foreground)] mb-8">
+            <h2 className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-sans leading-[1.1] tracking-tight text-[var(--foreground)] mb-4">
               {t('education.heading')}
             </h2>
+            <p className="text-sm md:text-base text-[var(--muted)] italic mb-8">
+              &quot;alam takambang manjadi guru&quot;
+            </p>
             <div className="w-full h-px bg-gradient-to-r from-transparent via-white/50 to-transparent backdrop-blur-sm" />
           </div>
         </FadeIn>

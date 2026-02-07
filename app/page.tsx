@@ -132,6 +132,11 @@ const HERO_VIDEOS = [
     mp4: '/videos/hero.mp4',
     poster: '/images/hero-poster.jpg',
   },
+  {
+    webm: '/videos/hero2.webm',
+    mp4: '/videos/hero2.mp4',
+    poster: '/images/hero-poster-2.jpg',
+  },
 ];
 
 /**
