@@ -138,12 +138,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    // Load saved language preference
-    const savedLang = localStorage.getItem('language') as Language;
-    if (savedLang && (savedLang === 'id' || savedLang === 'en')) {
-      setLanguageState(savedLang);
-    }
   }, []);
+
+  useEffect(() => {
+    // Only load from localStorage after mount to prevent hydration mismatch
+    if (mounted) {
+      const savedLang = localStorage.getItem('language') as Language;
+      if (savedLang && (savedLang === 'id' || savedLang === 'en')) {
+        setLanguageState(savedLang);
+      }
+    }
+  }, [mounted]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
@@ -154,11 +159,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return translations[language][key as keyof typeof translations.en] || key;
   };
 
-  // Prevent hydration mismatch by not rendering until mounted
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  // Always provide context to prevent hydration mismatch
+  // Language preference updates after mount
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
       {children}
