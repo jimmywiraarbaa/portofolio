@@ -47,6 +47,7 @@ export default function RootLayout({
     <html lang="en" className={dmSans.variable}>
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
+        <link rel="icon" type="image/png" href="/images/cool-duck.png" />
       </head>
       <LanguageProvider>
         <body className="font-dm-sans antialiased" suppressHydrationWarning>
