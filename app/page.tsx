@@ -1,18 +1,33 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { useLenis } from '@/hooks/useLenis';
 import { usePreloadMedia, useFontPreload } from '@/hooks/usePreloadMedia';
 import { LoadingScreen } from '@/components/LoadingScreen';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { Intro } from '@/components/Intro';
-import { Works } from '@/components/Works';
-import { About } from '@/components/About';
-import { Contact } from '@/components/Contact';
-import { Footer } from '@/components/Footer';
-import { WhatsAppButton } from '@/components/WhatsAppButton';
-import { CustomCursor } from '@/components/CustomCursor';
+import dynamic from 'next/dynamic';
+
+// Lazy load components below the fold for better performance
+const Works = dynamic(() => import('@/components/Works').then(mod => ({ default: mod.Works })), {
+  loading: () => <div className="min-h-[50vh] bg-[var(--background)]" />,
+});
+
+const About = dynamic(() => import('@/components/About').then(mod => ({ default: mod.About })), {
+  loading: () => <div className="min-h-[50vh] bg-[var(--background)]" />,
+});
+
+const Contact = dynamic(() => import('@/components/Contact').then(mod => ({ default: mod.Contact })), {
+  loading: () => <div className="min-h-[50vh] bg-[var(--background)]" />,
+});
+
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  loading: () => <div className="min-h-[20vh] bg-[var(--background)]" />,
+});
+
+const WhatsAppButton = dynamic(() => import('@/components/WhatsAppButton').then(mod => ({ default: mod.WhatsAppButton })));
+const CustomCursor = dynamic(() => import('@/components/CustomCursor').then(mod => ({ default: mod.CustomCursor })));
 
 // Sample data - replace with your own content
 const WORKS_DATA = [
@@ -130,14 +145,15 @@ export default function HomePage() {
   // Initialize Lenis smooth scrolling
   useLenis({ duration: 1.5 });
 
-  // Preload all hero videos
+  // Preload only the first video initially for faster load time
   const { progress, isLoaded } = usePreloadMedia(
-    HERO_VIDEOS.map((video) => ({
+    [{
       type: 'video' as const,
-      src: video.webm,
-      fallback: video.mp4,
-      poster: video.poster,
-    })),
+      src: HERO_VIDEOS[0].webm,
+      fallback: HERO_VIDEOS[0].mp4,
+      poster: HERO_VIDEOS[0].poster,
+    }],
+    1000 // Reduced minimum delay
   );
 
   // Auto-rotate videos every 6 seconds
@@ -180,9 +196,6 @@ export default function HomePage() {
         onComplete={handleLoadingComplete}
       />
 
-      {/* Grain Overlay - optional visual texture */}
-      <div className="grain-overlay" />
-
       {/* Navbar */}
       <Navbar />
 
@@ -207,20 +220,28 @@ export default function HomePage() {
           techStack={INTRO_DATA.techStack}
         />
 
-        {/* Works Section */}
-        <Works works={WORKS_DATA} />
+        {/* Works Section - Lazy loaded */}
+        <Suspense fallback={<div className="min-h-[50vh] bg-[var(--background)]" />}>
+          <Works works={WORKS_DATA} />
+        </Suspense>
 
-        {/* Education Section */}
-        <About heading={EDUCATION_DATA.heading} tabs={EDUCATION_DATA.tabs} />
+        {/* Education Section - Lazy loaded */}
+        <Suspense fallback={<div className="min-h-[50vh] bg-[var(--background)]" />}>
+          <About heading={EDUCATION_DATA.heading} tabs={EDUCATION_DATA.tabs} />
+        </Suspense>
 
-        {/* Contact Section */}
-        <Contact
-          email={CONTACT_DATA.email}
-          socialLinks={CONTACT_DATA.socialLinks}
-        />
+        {/* Contact Section - Lazy loaded */}
+        <Suspense fallback={<div className="min-h-[50vh] bg-[var(--background)]" />}>
+          <Contact
+            email={CONTACT_DATA.email}
+            socialLinks={CONTACT_DATA.socialLinks}
+          />
+        </Suspense>
 
-        {/* Footer */}
-        <Footer name="JIMMY" />
+        {/* Footer - Lazy loaded */}
+        <Suspense fallback={<div className="min-h-[20vh] bg-[var(--background)]" />}>
+          <Footer name="JIMMY" />
+        </Suspense>
       </main>
 
       {/* WhatsApp Floating Button */}

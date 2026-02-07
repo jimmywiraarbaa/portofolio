@@ -29,8 +29,8 @@ export function LoadingScreen({
 }: LoadingScreenProps) {
   useEffect(() => {
     if (isLoaded && onComplete) {
-      // Small delay after 100% before exit animation
-      const timer = setTimeout(onComplete, 500);
+      // Faster exit after load for better performance
+      const timer = setTimeout(onComplete, 200);
       return () => clearTimeout(timer);
     }
   }, [isLoaded, onComplete]);
@@ -41,7 +41,7 @@ export function LoadingScreen({
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
+          transition={{ duration: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--background)]"
         >
           <div className="flex flex-col items-center">

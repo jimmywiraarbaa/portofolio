@@ -11,6 +11,16 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["framer-motion"],
   },
+  // Additional optimizations
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Optimize CSS
+  modularizeImports: {
+    'framer-motion': {
+      transform: 'framer-motion/{{member}}',
+    },
+  },
 };
 
 module.exports = nextConfig;

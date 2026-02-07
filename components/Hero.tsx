@@ -80,12 +80,14 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
         style={{ y: yVideo, scale: scaleVideo }}
         className="absolute inset-0 w-full h-full will-change-transform"
       >
-        <AnimatePresence mode="crossfade">
+        <AnimatePresence mode="wait">
           {videos.map((video, index) => (
             index === currentIndex && (
               <motion.video
                 key={video.webm}
-                ref={(el) => (videoRefs.current[index] = el)}
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
                 src={video.webm}
                 poster={video.poster}
                 autoPlay

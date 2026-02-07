@@ -43,15 +43,11 @@ export function useLenis({
     const lenis = new Lenis({
       duration,
       easing,
-      direction: "vertical",
-      gestureDirection: "vertical",
       smooth: true,
-      mouseMultiplier: 1,
       smoothTouch: false,
-      touchMultiplier: 2,
       infinite: false,
       root,
-    });
+    } as any);
 
     lenisRef.current = lenis;
 

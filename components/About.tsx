@@ -181,14 +181,18 @@ export function About({ heading, tabs }: AboutProps) {
                   className="bg-[var(--muted)]/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-[var(--muted)]/10"
                 >
                   <h3 className="text-2xl md:text-3xl font-sans text-[var(--foreground)] mb-3">
-                    {t(currentTab.description)}
+                    {currentTab.description ? t(currentTab.description) : ''}
                   </h3>
-                  <p className="text-[var(--accent)] font-medium mb-1">
-                    {t(currentTab.institution)}
-                  </p>
-                  <p className="text-[var(--muted)] text-sm mb-4">
-                    {t(currentTab.year)}
-                  </p>
+                  {currentTab.institution && (
+                    <p className="text-[var(--accent)] font-medium mb-1">
+                      {t(currentTab.institution)}
+                    </p>
+                  )}
+                  {currentTab.year && (
+                    <p className="text-[var(--muted)] text-sm mb-4">
+                      {t(currentTab.year)}
+                    </p>
+                  )}
                   {currentTab.gpa && (
                     <p className="text-[var(--foreground)] font-semibold text-sm mb-6">
                       {t(currentTab.gpa)}
