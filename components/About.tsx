@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { FadeIn } from "./motion";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Tab {
   id: string;
@@ -33,6 +34,7 @@ interface AboutProps {
  */
 export function About({ heading, tabs }: AboutProps) {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const { t } = useLanguage();
 
   const currentTab = tabs.find((tab) => tab.id === activeTab) || tabs[0];
 
@@ -43,7 +45,7 @@ export function About({ heading, tabs }: AboutProps) {
         <FadeIn>
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-sans leading-[1.1] tracking-tight text-[var(--foreground)] mb-8">
-              {heading}
+              {t('education.heading')}
             </h2>
             <div className="w-full h-px bg-gradient-to-r from-transparent via-white/50 to-transparent backdrop-blur-sm" />
           </div>
@@ -62,7 +64,7 @@ export function About({ heading, tabs }: AboutProps) {
                     : "text-[var(--muted)] hover:text-[var(--foreground)] blur-[2.5px] hover:blur-0"
                 }`}
               >
-                {tab.label}
+                {t(tab.label)}
                 {/* Active indicator - no underline, just color change */}
                 {activeTab === tab.id && (
                   <motion.span

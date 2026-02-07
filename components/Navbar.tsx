@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
+import { LanguageSelector } from "./LanguageSelector";
 
 interface NavItem {
   label: string;
@@ -132,6 +133,11 @@ export function Navbar() {
               ))}
             </ul>
 
+            {/* Language Selector */}
+            <div className="hidden md:block">
+              <LanguageSelector />
+            </div>
+
             {/* Mobile Burger Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -181,6 +187,11 @@ export function Navbar() {
                 </svg>
               </motion.span>
             </button>
+
+            {/* Language Selector */}
+            <div className="absolute top-6 left-6">
+              <LanguageSelector />
+            </div>
 
             <ul className="flex flex-col h-full">
               {navItems.map((item, index) => (

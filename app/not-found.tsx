@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function NotFound() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-6 bg-[var(--background)]">
       <div className="text-center">
@@ -9,16 +12,16 @@ export default function NotFound() {
         </h1>
         <div className="mt-8">
           <h2 className="text-2xl md:text-3xl font-light text-[var(--foreground)] mb-4">
-            Page Not Found
+            {t('error.404.title')}
           </h2>
           <p className="text-[var(--muted)] mb-8 max-w-md mx-auto">
-            The page you are looking for does not exist or has been moved.
+            {t('error.404.message')}
           </p>
           <Link
             href="/"
             className="inline-flex items-center gap-3 px-8 py-4 border border-[var(--foreground)] text-[var(--foreground)] text-sm uppercase tracking-[0.15em] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all duration-300"
           >
-            Back to Home
+            {t('error.back')}
             <svg
               width="20"
               height="20"

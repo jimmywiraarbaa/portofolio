@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FadeIn, ParallaxText } from "./motion";
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TechStack {
   name: string;
@@ -37,6 +38,8 @@ const techColors: Record<string, string> = {
  * - Tech stack logos grid
  */
 export function Intro({ heading, subHeading, techStack }: IntroProps) {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center py-32 md:py-48">
       <div className="max-w-4xl md:max-w-6xl mx-auto px-6 md:px-12 text-center">
@@ -49,14 +52,14 @@ export function Intro({ heading, subHeading, techStack }: IntroProps) {
               </span>
             </div>
             <h2 className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-sans leading-[1.1] tracking-tight text-[var(--foreground)]">
-              {heading}
+              {t('intro.heading')}
             </h2>
           </div>
         </FadeIn>
 
         <FadeIn delay={0.2}>
           <h3 className="text-2xl md:text-3xl font-light text-[var(--muted)] mb-16">
-            {subHeading}
+            {t('intro.subHeading')}
           </h3>
         </FadeIn>
 

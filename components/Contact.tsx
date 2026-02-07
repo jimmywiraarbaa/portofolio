@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FadeIn } from "./motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface ContactProps {
   email: string;
@@ -20,12 +21,14 @@ interface ContactProps {
  * - Hover animations
  */
 export function Contact({ email, socialLinks }: ContactProps) {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="py-32 md:py-48">
       <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
         <FadeIn>
           <h2 className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-sans leading-[1.1] tracking-tight text-[var(--foreground)] mb-12">
-            Let's Connect
+            {t('contact.letsConnect')}
           </h2>
         </FadeIn>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function GlobalError({
   error,
@@ -9,6 +10,8 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const { t } = useLanguage();
+
   return (
     <html>
       <body>
@@ -19,23 +22,23 @@ export default function GlobalError({
             </h1>
             <div className="mt-8">
               <h2 className="text-2xl md:text-3xl font-light text-white mb-4">
-                Critical Error
+                {t('error.500.title')}
               </h2>
               <p className="text-white/60 mb-8 max-w-md mx-auto">
-                A critical error occurred. Please refresh the page or contact support if the problem persists.
+                {t('error.500.message')}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={reset}
                   className="inline-flex items-center gap-3 px-8 py-4 border border-white text-white text-sm uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-300"
                 >
-                  Reload
+                  {t('error.retry')}
                 </button>
                 <Link
                   href="/"
                   className="inline-flex items-center gap-3 px-8 py-4 text-white/60 text-sm uppercase tracking-[0.15em] hover:text-white transition-all duration-300"
                 >
-                  Back to Home
+                  {t('error.back')}
                 </Link>
               </div>
             </div>

@@ -64,7 +64,7 @@ const EDUCATION_DATA = {
   tabs: [
     {
       id: 'formal',
-      label: 'Formal',
+      label: 'education.formal',
       shortDescription:
         'Academic background and formal training in computer science and design.',
       description: 'Bachelor of Computer Science',
@@ -80,7 +80,7 @@ const EDUCATION_DATA = {
     },
     {
       id: 'non-formal',
-      label: 'Non-Formal',
+      label: 'education.nonFormal',
       shortDescription:
         'Professional certifications, workshops, and intensive bootcamps.',
       description: 'Professional Development',
@@ -101,7 +101,7 @@ const EDUCATION_DATA = {
     },
     {
       id: 'courses',
-      label: 'Courses',
+      label: 'education.courses',
       shortDescription: 'Self-paced learning from top educational platforms.',
       description: 'Continuous Learning',
       institution: 'Online Platforms',

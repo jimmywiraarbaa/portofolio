@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Video {
   webm: string;
@@ -31,6 +32,7 @@ interface HeroProps {
 export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
   const ref = useRef<HTMLElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const { t } = useLanguage();
 
   const { scrollY } = useScroll({
     target: ref,
@@ -124,7 +126,7 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
           style={{ y: yTitle, scale: scaleTitle }}
           className="text-[12vw] md:text-[8vw] lg:text-[7vw] font-material-symbols font-light tracking-tighter text-white leading-[0.9] will-change-transform"
         >
-          {title}
+          {t('hero.title')}
         </motion.h1>
 
         {/* Tagline with parallax and delay */}
@@ -135,7 +137,7 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
           transition={{ delay: 0.5, duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
           className="mt-6 md:mt-8 text-lg md:text-xl lg:text-2xl text-white/80 font-light tracking-wide max-w-2xl mx-auto will-change-transform"
         >
-          {tagline}
+          {t('hero.tagline')}
         </motion.p>
       </motion.div>
     </section>

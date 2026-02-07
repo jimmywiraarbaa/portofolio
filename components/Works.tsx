@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { FadeIn, ScaleIn } from './motion';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Tech stack brand colors
 const techColors: Record<string, string> = {
@@ -45,6 +46,7 @@ export function Works({ works }: WorksProps) {
     target: ref,
     offset: ['start end', 'end start'],
   });
+  const { t } = useLanguage();
 
   return (
     <section id="project" ref={ref} className="py-32 md:py-48">
@@ -52,7 +54,7 @@ export function Works({ works }: WorksProps) {
         {/* Section heading */}
         <FadeIn>
           <h2 className="text-[8vw] md:text-[5vw] lg:text-[4vw] font-sans leading-[1.1] tracking-tight text-[var(--foreground)] mb-16 md:mb-24">
-            Project Experience
+            {t('works.heading')}
           </h2>
         </FadeIn>
 
@@ -73,7 +75,7 @@ export function Works({ works }: WorksProps) {
               transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
               className="inline-flex items-center gap-3 px-8 py-4 border border-[var(--foreground)] text-[var(--foreground)] text-sm uppercase tracking-[0.15em] hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all duration-300"
             >
-              See all project
+              {t('works.seeAll')}
               <svg
                 width="20"
                 height="20"

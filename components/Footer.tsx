@@ -1,6 +1,7 @@
 'use client';
 
 import { FadeIn } from './motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FooterProps {
   name: string;
@@ -12,6 +13,7 @@ interface FooterProps {
  */
 export function Footer({ name, year }: FooterProps) {
   const currentYear = year || new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="py-12 border-t border-[var(--muted)]/10">

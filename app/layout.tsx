@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
 import "../styles/globals.css";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 // Font configuration
 const dmSans = DM_Sans({
@@ -47,7 +48,9 @@ export default function RootLayout({
       <head>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
       </head>
-      <body className="font-dm-sans antialiased">{children}</body>
+      <LanguageProvider>
+        <body className="font-dm-sans antialiased">{children}</body>
+      </LanguageProvider>
     </html>
   );
 }
