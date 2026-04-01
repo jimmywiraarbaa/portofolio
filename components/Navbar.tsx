@@ -169,12 +169,12 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-            className="md:hidden fixed inset-0 w-screen h-screen bg-black/95 backdrop-blur-xl z-[60]"
+            className="md:hidden fixed inset-0 w-screen h-screen bg-black/95 backdrop-blur-xl z-[60] overflow-hidden"
           >
             {/* Close Button */}
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-[var(--foreground)] hover:text-white transition-colors"
+              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-[var(--foreground)] hover:text-white transition-colors z-10"
               aria-label="Close menu"
             >
               <motion.span
@@ -189,7 +189,7 @@ export function Navbar() {
             </button>
 
             {/* Language Selector */}
-            <div className="absolute top-6 left-6">
+            <div className="absolute top-6 left-6 max-w-[calc(100vw-5rem)]">
               <LanguageSelector />
             </div>
 

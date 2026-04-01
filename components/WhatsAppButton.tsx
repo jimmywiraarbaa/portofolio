@@ -17,7 +17,8 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 export function WhatsAppButton() {
   const [pastHero, setPastHero] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const whatsappUrl = "https://wa.me/6285363298884";
+  const message = encodeURIComponent("Halo, Jimmy saya ingin order website");
+  const whatsappUrl = `https://wa.me/6285363298884?text=${message}`;
 
   useEffect(() => {
     setMounted(true);

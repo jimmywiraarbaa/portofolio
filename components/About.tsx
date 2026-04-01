@@ -153,7 +153,7 @@ export function About({ heading, tabs }: AboutProps) {
                     src={currentTab.image}
                     alt={currentTab.label}
                     fill
-                    className="object-cover"
+                    className="object-cover -rotate-90 scale-125"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
                   />

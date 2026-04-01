@@ -21,9 +21,11 @@ export function LanguageSelector() {
   useEffect(() => {
     if (isOpen && triggerRef.current) {
       const rect = triggerRef.current.getBoundingClientRect();
+      const isMobile = window.innerWidth < 768;
+
       setDropdownPosition({
         top: rect.bottom + 8,
-        left: rect.right - 120, // Align to right
+        left: isMobile ? rect.left : rect.right - 120, // Mobile: align left, Desktop: align right
         width: 120,
       });
     }
@@ -76,7 +78,7 @@ export function LanguageSelector() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}
           transition={{ duration: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
-          className="fixed z-[9999]"
+          className="fixed z-[9999] max-w-[calc(100vw-2rem)]"
           style={{
             top: `${dropdownPosition.top}px`,
             left: `${dropdownPosition.left}px`,
@@ -131,12 +133,12 @@ export function LanguageSelector() {
   );
 
   return (
-    <div className="relative">
+    <div className="relative overflow-visible">
       {/* Trigger Button */}
       <button
         ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-1.5 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-300"
+        className="flex items-center gap-2 px-3 py-1.5 text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors duration-300 whitespace-nowrap"
         aria-label="Select language"
         aria-expanded={isOpen}
       >
