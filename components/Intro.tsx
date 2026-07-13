@@ -82,7 +82,7 @@ export function Intro({ heading, subHeading, techStack }: IntroProps) {
                     src={`/logos/${tech.icon}.svg`}
                     alt={tech.name}
                     fill
-                    className="object-contain brightness-0 invert opacity-60 group-hover:opacity-100 relative z-10 transition-all duration-300"
+                    className="object-contain brightness-0 dark:invert group-hover:invert opacity-60 group-hover:opacity-100 relative z-10 transition-all duration-300"
                   />
                 </div>
                 <span className="text-sm text-[var(--muted)] group-hover:text-[var(--foreground)] transition-colors duration-300">

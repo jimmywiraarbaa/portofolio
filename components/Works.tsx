@@ -166,7 +166,7 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
                   src={`/logos/${tech.toLowerCase()}.svg`}
                   alt={tech}
                   fill
-                  className="object-contain brightness-0 invert opacity-60 group-hover:opacity-100 relative z-10 transition-all duration-300"
+                  className="object-contain brightness-0 dark:invert group-hover:invert opacity-60 group-hover:opacity-100 relative z-10 transition-all duration-300"
                 />
               </div>
             ))}
