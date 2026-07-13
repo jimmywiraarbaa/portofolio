@@ -67,7 +67,6 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
                 ref={(el) => {
                   videoRefs.current[index] = el;
                 }}
-                src={video.webm}
                 poster={video.poster}
                 autoPlay
                 muted
@@ -80,8 +79,8 @@ export function Hero({ videos, currentIndex, title, tagline }: HeroProps) {
                 transition={{ duration: 0.5 }}
                 className="absolute inset-0 w-full h-full object-cover"
               >
-                <source src={video.webm} type="video/webm" />
                 <source src={video.mp4} type="video/mp4" />
+                <source src={video.webm} type="video/webm" />
               </motion.video>
             )
           ))}

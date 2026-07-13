@@ -51,14 +51,14 @@ export function useLenis({
 
     // Handle anchor link clicks for smooth scrolling
     const handleClick = (e: MouseEvent) => {
-      const target = e.target as HTMLAnchorElement;
+      const anchor = (e.target as HTMLElement).closest("a");
       if (
-        target.tagName === "A" &&
-        target.hash &&
-        target.origin === window.location.origin
+        anchor &&
+        anchor.hash &&
+        anchor.origin === window.location.origin
       ) {
         e.preventDefault();
-        const id = target.hash.slice(1);
+        const id = anchor.hash.slice(1);
         const element = document.getElementById(id);
         if (element) {
           lenis.scrollTo(element);

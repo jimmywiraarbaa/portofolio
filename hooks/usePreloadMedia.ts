@@ -54,36 +54,44 @@ export function usePreloadMedia(
         video.muted = true;
         video.playsInline = true;
 
+        let settled = false;
+
+        const timeoutId = setTimeout(() => {
+          if (!settled) {
+            settled = true;
+            resolve();
+          }
+        }, 5000);
+
         // Load poster first if provided
         const loadPoster = poster
           ? new Promise<void>((posterResolve) => {
               const img = new Image();
               img.onload = () => posterResolve();
-              img.onerror = () => posterResolve(); // Continue on poster error
+              img.onerror = () => posterResolve();
               img.src = poster;
             })
           : Promise.resolve();
 
         loadPoster.then(() => {
+          if (settled) return;
+
           video.src = src;
 
-          video.addEventListener("loadeddata", () => {
-            // Ensure we can play the video
-            video
-              .play()
-              .then(() => {
-                video.pause();
-                URL.revokeObjectURL(video.src);
-                resolve();
-              })
-              .catch(() => {
-                // Can play but can't autoplay (browser policy)
-                resolve();
-              });
+          video.addEventListener("loadedmetadata", () => {
+            if (!settled) {
+              settled = true;
+              clearTimeout(timeoutId);
+              resolve();
+            }
           });
 
           video.addEventListener("error", () => {
-            reject(new Error(`Failed to load video: ${src}`));
+            if (!settled) {
+              settled = true;
+              clearTimeout(timeoutId);
+              reject(new Error(`Failed to load video: ${src}`));
+            }
           });
         });
       });
@@ -168,10 +176,19 @@ export function usePreloadMedia(
       }
     };
 
+    // Global safety net: force complete after max wait
+    const maxTimeoutId = setTimeout(() => {
+      if (isMounted) {
+        setProgress(100);
+        setIsLoaded(true);
+      }
+    }, 8000);
+
     loadMedia();
 
     return () => {
       isMounted = false;
+      clearTimeout(maxTimeoutId);
     };
   }, [sources, delay, loadVideo, loadImage]);
 

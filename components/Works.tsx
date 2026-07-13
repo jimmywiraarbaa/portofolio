@@ -69,7 +69,7 @@ export function Works({ works }: WorksProps) {
         <FadeIn delay={0.3}>
           <div className="mt-16 md:mt-24 text-center">
             <motion.a
-              href="/project"
+              href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
