@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
 import "../styles/globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 // Font configuration
 const dmSans = DM_Sans({
@@ -44,9 +45,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={dmSans.variable}>
+    <html lang="en" className={dmSans.variable} suppressHydrationWarning>
       <head>
-        {/* Preconnect to font domains - no crossorigin for preconnect */}
+        {/* Anti-FOUC: apply dark class before paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var t = localStorage.getItem('theme');
+                if (t !== 'light') {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
+        {/* Preconnect to font domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         {/* Preload critical LCP image */}
@@ -55,11 +69,13 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
         <link rel="icon" type="image/png" href="/images/cool-duck.png" />
       </head>
-      <LanguageProvider>
-        <body className="font-dm-sans antialiased" suppressHydrationWarning>
-          {children}
-        </body>
-      </LanguageProvider>
+      <ThemeProvider>
+        <LanguageProvider>
+          <body className="font-dm-sans antialiased" suppressHydrationWarning>
+            {children}
+          </body>
+        </LanguageProvider>
+      </ThemeProvider>
     </html>
   );
 }

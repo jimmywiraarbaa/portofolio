@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { LanguageSelector } from "./LanguageSelector";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface NavItem {
   label: string;
@@ -133,8 +134,9 @@ export function Navbar() {
               ))}
             </ul>
 
-            {/* Language Selector */}
-            <div className="hidden md:block">
+            {/* Language Selector & Theme Toggle */}
+            <div className="hidden md:flex items-center gap-2">
+              <ThemeToggle />
               <LanguageSelector />
             </div>
 
@@ -188,8 +190,9 @@ export function Navbar() {
               </motion.span>
             </button>
 
-            {/* Language Selector */}
-            <div className="absolute top-6 left-6 max-w-[calc(100vw-5rem)]">
+            {/* Language Selector & Theme Toggle */}
+            <div className="absolute top-6 left-6 flex items-center gap-2 max-w-[calc(100vw-5rem)]">
+              <ThemeToggle />
               <LanguageSelector />
             </div>
 

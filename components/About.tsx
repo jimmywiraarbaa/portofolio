@@ -52,21 +52,21 @@ export function About({ heading, tabs }: AboutProps) {
             <p className="text-sm md:text-base text-[var(--muted)] italic mb-8">
               &quot;alam takambang manjadi guru&quot;
             </p>
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/50 to-transparent backdrop-blur-sm" />
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-[var(--foreground)]/20 to-transparent" />
           </div>
         </FadeIn>
 
         {/* Tabs */}
         <FadeIn delay={0.2}>
-          <div className="flex flex-wrap justify-center md:justify-start gap-8 md:gap-24 lg:gap-40 mb-6 md:mb-8">
+          <div className="flex flex-wrap justify-center md:justify-start gap-6 md:gap-24 lg:gap-40 mb-6 md:mb-8">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative pb-2 text-xl md:text-3xl lg:text-4xl font-medium transition-all duration-300 ${
+                className={`relative pb-2 text-lg md:text-3xl lg:text-4xl font-medium transition-all duration-300 ${
                   activeTab === tab.id
-                    ? "text-white"
-                    : "text-[var(--muted)] hover:text-[var(--foreground)] blur-[2.5px] hover:blur-0"
+                    ? "text-[var(--foreground)]"
+                    : "text-[var(--muted)] hover:text-[var(--foreground)] opacity-50 hover:opacity-100"
                 }`}
               >
                 {t(tab.label)}

@@ -35,7 +35,7 @@ export function Contact({ email, socialLinks }: ContactProps) {
         <FadeIn delay={0.2}>
           <motion.a
             href={`mailto:${email}`}
-            className="inline-block text-2xl md:text-4xl lg:text-5xl text-[var(--foreground)] hover:text-[var(--accent)] transition-colors duration-300 mb-16"
+            className="inline-block text-xl md:text-4xl lg:text-5xl text-[var(--foreground)] hover:text-[var(--accent)] transition-colors duration-300 mb-16 break-all"
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
           >

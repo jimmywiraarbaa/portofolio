@@ -65,7 +65,7 @@ export function Intro({ heading, subHeading, techStack }: IntroProps) {
 
         {/* Tech Stack Grid */}
         <FadeIn delay={0.4}>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-16 md:gap-40 max-w-3xl mx-auto">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 md:gap-16 lg:gap-40 max-w-3xl mx-auto">
             {techStack.map((tech, index) => (
               <motion.div
                 key={index}
@@ -74,7 +74,7 @@ export function Intro({ heading, subHeading, techStack }: IntroProps) {
                 transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
                 className="flex flex-col items-center gap-3 group"
               >
-                <div className="w-16 h-16 md:w-[104px] md:h-[104px] relative flex items-center justify-center" style={{"--tech-color": techColors[tech.icon]} as React.CSSProperties}>
+                <div className="w-14 h-14 md:w-[104px] md:h-[104px] relative flex items-center justify-center" style={{"--tech-color": techColors[tech.icon]} as React.CSSProperties}>
                   {/* Background color circle on hover */}
                   <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100" style={{backgroundColor: "var(--tech-color)"}} />
                   {/* Logo */}
