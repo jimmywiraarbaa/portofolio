@@ -26,6 +26,7 @@ const WORKS_DATA = [
     description: 'works.tppkk.description',
     image: '/images/mockup-tppkk.png',
     tech: ['Laravel', 'React', 'MySQL'],
+    url: 'https://tp-pkk.padang.go.id/',
   },
   {
     id: '2',
@@ -34,6 +35,7 @@ const WORKS_DATA = [
     description: 'works.r5m.description',
     image: '/images/r5m-panel.png',
     tech: ['Laravel', 'React', 'MySQL'],
+    url: 'https://panel.erlimaem.com/',
   },
   {
     id: '3',

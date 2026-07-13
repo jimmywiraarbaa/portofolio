@@ -25,6 +25,7 @@ interface Work {
   description: string;
   image: string;
   tech: string[];
+  url?: string;
 }
 
 interface WorksProps {
@@ -171,6 +172,18 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
               </div>
             ))}
           </div>
+          {work.url && (
+            <div className={`mt-6 ${!isEven ? 'md:text-right' : ''}`}>
+              <a
+                href={work.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              >
+                Link: <span className="text-[var(--accent)] underline">{work.url.replace(/^https?:\/\//, '')}</span>
+              </a>
+            </div>
+          )}
         </div>
       </motion.div>
     </ScaleIn>
