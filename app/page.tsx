@@ -10,6 +10,7 @@ import { Intro } from '@/components/Intro';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { CustomCursor } from '@/components/CustomCursor';
 import dynamic from 'next/dynamic';
+import { PROJECTS } from '@/lib/projects';
 
 // Lazy load large sections below the fold
 const Works = dynamic(() => import('@/components/Works').then(mod => ({ default: mod.Works })));
@@ -17,35 +18,7 @@ const About = dynamic(() => import('@/components/About').then(mod => ({ default:
 const Contact = dynamic(() => import('@/components/Contact').then(mod => ({ default: mod.Contact })));
 const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })));
 
-// Sample data - replace with your own content
-const WORKS_DATA = [
-  {
-    id: '1',
-    title: 'TP-PKK Kota Padang',
-    category: 'works.tppkk.category',
-    description: 'works.tppkk.description',
-    image: '/images/mockup-tppkk.png',
-    tech: ['Laravel', 'React', 'MySQL'],
-    url: 'https://tp-pkk.padang.go.id/',
-  },
-  {
-    id: '2',
-    title: 'R5M Panel',
-    category: 'works.r5m.category',
-    description: 'works.r5m.description',
-    image: '/images/r5m-panel.png',
-    tech: ['Laravel', 'React', 'MySQL'],
-    url: 'https://panel.erlimaem.com/',
-  },
-  {
-    id: '3',
-    title: 'Tracking App',
-    category: 'works.tracking.category',
-    description: 'works.tracking.description',
-    image: '/images/mockup-trackingapp.png',
-    tech: ['Flutter', 'Nextjs', 'PostgreSQL', 'Golang'],
-  },
-];
+const FEATURED_WORKS = PROJECTS.slice(0, 3);
 
 const INTRO_DATA = {
   heading: 'Available for Remote Work',
@@ -59,6 +32,7 @@ const INTRO_DATA = {
     { name: 'PostgreSQL', icon: 'postgresql' },
     { name: 'Postman', icon: 'postman' },
     { name: 'Flutter', icon: 'flutter' },
+    { name: 'Python', icon: 'python' },
   ],
 };
 
@@ -199,7 +173,7 @@ export default function HomePage() {
 
         {/* Works Section - Lazy loaded */}
         <Suspense fallback={null}>
-          <Works works={WORKS_DATA} />
+          <Works works={FEATURED_WORKS} />
         </Suspense>
 
         {/* Education Section - Lazy loaded */}

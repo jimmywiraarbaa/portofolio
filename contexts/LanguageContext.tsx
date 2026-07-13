@@ -50,6 +50,22 @@ const translations = {
       'Aplikasi mobile untuk pelacakan dan pengelolaan operasi karyawan.',
     'works.tracking.category': 'Web & Mobile Internal',
 
+    // New projects
+    'works.smartSurau.category': 'Mobile AI Integrated',
+    'works.smartSurau.description':
+      'Smart Surau — sistem absensi sholat siswa Kota Padang menggunakan pengenalan wajah pada smart surau.',
+    'works.rembug.category': 'Video Conference',
+    'works.rembug.description':
+      'Website meeting internal mirip Zoom Meeting, saat ini masih dalam tahap pengembangan.',
+    'works.simpeg.category': 'Website Internal',
+    'works.simpeg.description':
+      'Website pengelolaan surat pada BPKPSDM Kota Padang.',
+
+    // Project page
+    'project.title': 'Project Experience',
+    'project.subtitle': 'Kumpulan project yang pernah saya kerjakan',
+    'project.back': 'Kembali ke Beranda',
+
     // Education
     'education.heading': 'Pendidikan',
     'education.formal': 'Formal',
@@ -110,6 +126,22 @@ const translations = {
     'works.tracking.description':
       'Mobile application for tracking and managing employee operations.',
     'works.tracking.category': 'Web & Mobile Internal',
+
+    // New projects
+    'works.smartSurau.category': 'Mobile AI Integrated',
+    'works.smartSurau.description':
+      'Smart Surau — prayer attendance system for Padang city students using facial recognition at smart surau.',
+    'works.rembug.category': 'Video Conference',
+    'works.rembug.description':
+      'Internal meeting website similar to Zoom Meeting, currently in development.',
+    'works.simpeg.category': 'Internal Website',
+    'works.simpeg.description':
+      'Internal mail management website for BPKPSDM Padang city.',
+
+    // Project page
+    'project.title': 'Project Experience',
+    'project.subtitle': 'A collection of projects I have worked on',
+    'project.back': 'Back to Home',
 
     // Education
     'education.heading': 'Education',

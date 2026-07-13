@@ -16,6 +16,7 @@ const techColors: Record<string, string> = {
   postman: '#FF6C37',
   flutter: '#17B9FD',
   nextjs: '#000000',
+  python: '#F7CA3F',
 };
 
 interface Work {
@@ -23,9 +24,10 @@ interface Work {
   title: string;
   category: string;
   description: string;
-  image: string;
+  image: string | null;
   tech: string[];
   url?: string;
+  urlLabel?: string;
 }
 
 interface WorksProps {
@@ -70,7 +72,7 @@ export function Works({ works }: WorksProps) {
         <FadeIn delay={0.3}>
           <div className="mt-16 md:mt-24 text-center">
             <motion.a
-              href="#contact"
+              href="/project"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
@@ -130,13 +132,21 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
             transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
             className="relative w-full h-full"
           >
-            <Image
-              src={work.image}
-              alt={work.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 66vw"
-            />
+            {work.image ? (
+              <Image
+                src={work.image}
+                alt={work.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 66vw"
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-[var(--foreground)]/10 to-[var(--foreground)]/5 flex items-center justify-center">
+                <span className="text-[12vw] md:text-[6vw] text-[var(--muted)]/20 font-sans tracking-tighter">
+                  {work.title.charAt(0)}
+                </span>
+              </div>
+            )}
           </motion.div>
 
           {/* Overlay on hover */}
@@ -182,6 +192,13 @@ function WorkItem({ work, index }: { work: Work; index: number }) {
               >
                 Link: <span className="text-[var(--accent)] underline">{work.url.replace(/^https?:\/\//, '')}</span>
               </a>
+            </div>
+          )}
+          {work.urlLabel && !work.url && (
+            <div className={`mt-6 ${!isEven ? 'md:text-right' : ''}`}>
+              <span className="text-sm text-[var(--muted)]">
+                {work.urlLabel}
+              </span>
             </div>
           )}
         </div>
