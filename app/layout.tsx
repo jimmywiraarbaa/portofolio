@@ -14,21 +14,43 @@ const dmSans = DM_Sans({
   style: ["normal", "italic"],
 });
 
+const BASE_URL = "https://jimmywiraarbaa.netlify.app";
+
 export const metadata: Metadata = {
-  title: "JIMMY | Digital Experiences",
+  metadataBase: new URL(BASE_URL),
+  title: "Jimmy Wira Arbaa — Full-Stack & AI Engineer",
   description:
-    "Crafting thoughtful, user-centric digital products with attention to detail and smooth interactions.",
+    "Portofolio Jimmy Wira Arbaa, Full-Stack & AI Engineer dari Padang. Laravel, Go, React, Next.js, Flutter — Smart Surau, Padang Mobile, TP-PKK, dan proyek lainnya.",
+  keywords: [
+    "Jimmy Wira Arbaa",
+    "portofolio",
+    "full-stack developer",
+    "software engineer",
+    "Laravel",
+    "Golang",
+    "React",
+    "Next.js",
+    "Flutter",
+    "Padang",
+  ],
+  authors: [{ name: "Jimmy Wira Arbaa", url: "https://www.linkedin.com/in/jimmy-wira-arbaa/" }],
+  creator: "Jimmy Wira Arbaa",
+  alternates: { canonical: '/' },
   openGraph: {
-    title: "JIMMY | Digital Experiences",
+    title: "Jimmy Wira Arbaa — Full-Stack & AI Engineer",
     description:
-      "Crafting thoughtful, user-centric digital products with attention to detail.",
+      "Portofolio Jimmy Wira Arbaa: Smart Surau, Padang Mobile, TP-PKK, dan proyek full-stack lainnya.",
     type: "website",
+    url: BASE_URL,
+    siteName: "Jimmy Wira Arbaa — Portofolio",
+    locale: "id_ID",
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630, alt: "Jimmy Wira Arbaa" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JIMMY | Digital Experiences",
+    title: "Jimmy Wira Arbaa — Full-Stack & AI Engineer",
     description:
-      "Crafting thoughtful, user-centric digital products with attention to detail.",
+      "Portofolio Jimmy Wira Arbaa: Smart Surau, Padang Mobile, TP-PKK, dan proyek full-stack lainnya.",
   },
 };
 
@@ -47,6 +69,25 @@ export default function RootLayout({
   return (
     <html lang="en" className={dmSans.variable} suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Jimmy Wira Arbaa',
+              jobTitle: 'Full-Stack & AI Engineer',
+              url: BASE_URL,
+              email: 'mailto:jimmywiraarbaa03@gmail.com',
+              address: { '@type': 'PostalAddress', addressLocality: 'Padang', addressCountry: 'ID' },
+              sameAs: [
+                'https://www.linkedin.com/in/jimmy-wira-arbaa/',
+                'https://github.com/jimmywiraarbaa',
+                'https://www.instagram.com/wiraarbaa_',
+              ],
+            }),
+          }}
+        />
         {/* Anti-FOUC: apply dark class before paint */}
         <script
           dangerouslySetInnerHTML={{
