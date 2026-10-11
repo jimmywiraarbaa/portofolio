@@ -44,22 +44,28 @@ const translations = {
       'Platform informasi yang bersih untuk mengelola berita dan aktivitas TP PKK Kota Padang.',
     'works.tppkk.category': 'Web Publikasi',
     'works.r5m.description':
-      'Dashboard untuk mengelola operasi internal perusahaan Erlimaem.',
-    'works.r5m.category': 'Web Internal',
+      'Dashboard manajemen armada & logistik PT Erlimaem — delivery order, kontrak, gudang, maintenance, laporan keuangan. Production & digunakan harian.',
+    'works.r5m.category': 'Web Production',
+    'works.lbs.description':
+      'Sistem manajemen logistik & delivery order Lestari Buana Sakti — kontrak masuk, gudang, karyawan, kwitansi/invoice PDF. Production & online.',
+    'works.lbs.category': 'Web Production',
     'works.tracking.description':
-      'Aplikasi mobile untuk pelacakan dan pengelolaan operasi karyawan.',
-    'works.tracking.category': 'Web & Mobile Internal',
+      'Website & aplikasi mobile internal Satpol PP Kota Padang untuk pelacakan aktivitas petugas lapangan.',
+    'works.tracking.category': 'Web & Mobile Pemerintah',
 
     // New projects
-    'works.smartSurau.category': 'Mobile AI Integrated',
+    'works.padangMobile.category': 'Mobile App Publik',
+    'works.padangMobile.description':
+      'Padang Mobile — superapp resmi Pemerintah Kota Padang di Play Store & App Store: layanan publik, berita, dan integrasi sistem pemerintah.',
+    'works.smartSurau.category': 'IoT + Mobile AI',
     'works.smartSurau.description':
-      'Smart Surau — sistem absensi sholat siswa Kota Padang menggunakan pengenalan wajah pada smart surau.',
+      'Smart Surau — web IoT presensi wajah surau + fitur presensi sholat siswa berbasis AI di mobile (add-on Padang Mobile), memakai InsightFace & pgvector.',
     'works.rembug.category': 'Video Conference',
     'works.rembug.description':
-      'Website meeting internal mirip Zoom Meeting, saat ini masih dalam tahap pengembangan.',
+      'Platform video conference internal Pemerintah Kota Padang — room/meeting, chat, recording, virtual background; lulus VAPT security audit.',
     'works.simpeg.category': 'Website Internal',
     'works.simpeg.description':
-      'Website pengelolaan surat pada BPKPSDM Kota Padang.',
+      'Sistem Informasi Manajemen Pegawai Pemko Padang — terintegrasi SIASN BKN & e-Sign BSrE dengan service engine workflow.',
 
     // Project page
     'project.title': 'Project Experience',
@@ -121,22 +127,28 @@ const translations = {
       'A clean information platform for managing news and activities of TP PKK Kota Padang.',
     'works.tppkk.category': 'Web Publication',
     'works.r5m.description':
-      'Dashboard for managing internal operations of R5M company.',
-    'works.r5m.category': 'Web Internal',
+      'Fleet & logistics management dashboard for PT Erlimaem — delivery orders, contracts, warehouse, maintenance, financial reports. In production, used daily.',
+    'works.r5m.category': 'Production Web',
+    'works.lbs.description':
+      'Logistics & delivery order system for Lestari Buana Sakti — inbound contracts, warehouse, employees, receipt/invoice PDF. Production & online.',
+    'works.lbs.category': 'Production Web',
     'works.tracking.description':
-      'Mobile application for tracking and managing employee operations.',
-    'works.tracking.category': 'Web & Mobile Internal',
+      'Internal web & mobile app for Satpol PP Kota Padang to track field officer activity.',
+    'works.tracking.category': 'Government Web & Mobile',
 
     // New projects
-    'works.smartSurau.category': 'Mobile AI Integrated',
+    'works.padangMobile.category': 'Public Mobile App',
+    'works.padangMobile.description':
+      'Padang Mobile — the official superapp of the Padang City Government on Play Store & App Store: public services, news, and government system integrations.',
+    'works.smartSurau.category': 'IoT + Mobile AI',
     'works.smartSurau.description':
-      'Smart Surau — prayer attendance system for Padang city students using facial recognition at smart surau.',
+      'Smart Surau — IoT web for mosque face-recognition attendance plus an AI-powered student prayer attendance mobile feature (Padang Mobile add-on), built with InsightFace & pgvector.',
     'works.rembug.category': 'Video Conference',
     'works.rembug.description':
-      'Internal meeting website similar to Zoom Meeting, currently in development.',
+      'Internal video conference platform for the Padang City Government — rooms/meetings, chat, recording, virtual background; passed an official VAPT security audit.',
     'works.simpeg.category': 'Internal Website',
     'works.simpeg.description':
-      'Internal mail management website for BPKPSDM Padang city.',
+      'Civil servant management system for Padang City Government — SIASN BKN & e-Sign BSrE integration with a workflow service engine.',
 
     // Project page
     'project.title': 'Project Experience',
