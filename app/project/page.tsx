@@ -22,7 +22,21 @@ const techColors: Record<string, string> = {
   flutter: '#17B9FD',
   nextjs: '#000000',
   python: '#F7CA3F',
+  docker: '#2496ED',
+  inertia: '#9553E9',
+  keycloak: '#4D4D4D',
+  livekit: '#FFFFFF',
+  livewire: '#4E56A6',
+  redis: '#FF4438',
+  typescript: '#3178C6',
+  pgvector: '#336791',
 };
+
+// Normalisasi nama tech -> nama file svg di /logos (mis. "Next.js" -> "nextjs")
+function techIconSrc(tech: string): string {
+  const slug = tech.toLowerCase().replace(/[\s.]/g, '');
+  return `/logos/${slug}.svg`;
+}
 
 const CONTACT_DATA = {
   email: 'jimmywiraarbaa03@gmail.com',
@@ -143,7 +157,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
                   style={{ backgroundColor: 'var(--tech-color)' }}
                 />
                 <Image
-                  src={`/logos/${tech.toLowerCase()}.svg`}
+                  src={techIconSrc(tech)}
                   alt={tech}
                   fill
                   className="object-contain brightness-0 dark:invert group-hover:invert opacity-60 group-hover:opacity-100 relative z-10 transition-all duration-300"
